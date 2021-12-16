@@ -1,0 +1,20 @@
+{
+    'name':'Gestion Scolarite',
+    'version':'1.0',
+    'author':'Mohcine BAADI, Hamza SAKHRI',
+    'category':'Gestion',
+    'sequence':1,
+    'description':"un module qui permet la gestion de scolarite",
+    'images':[''],
+    'depends':['base'],
+    'data':[''],
+    'website':'',
+    'update_xml':[],
+    'js':[],
+    'qweb':[],
+    'css':[],
+    'demo':[],
+    'test':[],
+    'installable':True,
+    'auto_install':False
+}
