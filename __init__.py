@@ -1,1 +1,8 @@
 #Importing classes
+import erp_affichage
+import erp_classe
+import erp_demande
+import erp_emploi
+import erp_etudiant
+import erp_inscription
+import erp_type_demande
