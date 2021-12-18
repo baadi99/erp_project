@@ -48,13 +48,13 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_etudiant_seq">
-            <field name="name">action etudiant</field>
+            <field name="name">Etudiants</field>
             <field name="res_model">erp.etudiant</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record> 
 
-        <menuitem name="Etudiant" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
-        <menuitem name="Sous-menu etudiant" id="real_menu_etudiant" parent="section_main_menu_etudiant" action="action_etudiant_seq" />
+        <menuitem name="Etudiants" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
+        <menuitem name="Etudiants" id="real_menu_etudiant" parent="section_main_menu_etudiant" action="action_etudiant_seq" />
     </data>
 </openerp>

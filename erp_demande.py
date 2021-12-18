@@ -7,11 +7,11 @@ class erp_demande(osv.osv):
 
     _columns = {
         'date_demande': fields.date("Date"),
-        'realise': fields.selection([('1', 'En cours'), ('2', 'Realise')], string = 'Etat'),
+        'realise': fields.selection((('1', 'En cours'), ('2', 'Realise')), string = 'Etat'),
     }
 
     _defaults = {
-        
+        'date_demande': fields.date("Date").today()
     }
 
 

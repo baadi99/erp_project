@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_typedemande" name="Gestion Scolarite (Type demandes)" />
+
+        <record id="erp_typedemande_form_view" model="ir.ui.view">
+            <field name="name">erp.typedemande.form</field>
+            <field name="model">erp.typedemande</field>
+            <field name="arch" type="xml">
+                <form string="typedemande" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations typedemande">
+                                <group>
+                                    <field name="type_demande" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.typedemande_tree" model="ir.ui.view">
+            <field name="name">erp.typedemande.tree</field>
+            <field name="model">erp.typedemande</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos typedemande">
+                    <field name="type_demande" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_typedemande_seq">
+            <field name="name">Types demande</field>
+            <field name="res_model">erp.typedemande</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Types demande" id="real_menu_typedemande" parent="section_main_menu_demande" action="action_typedemande_seq" />
+    </data>
+</openerp>

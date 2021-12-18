@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_classe" name="Gestion Scolarite(classe)" />
+
+        <record id="erp_classe_form_view" model="ir.ui.view">
+            <field name="name">erp.classe.form</field>
+            <field name="model">erp.classe</field>
+            <field name="arch" type="xml">
+                <form string="classe" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations classe">
+                                <group>
+                                    <field name="classe" />
+                                    <field name="code" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.classe_tree" model="ir.ui.view">
+            <field name="name">erp.classe.tree</field>
+            <field name="model">erp.classe</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos classe">
+                    <field name="classe" />
+                    <field name="code" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_classe_seq">
+            <field name="name">Classes</field>
+            <field name="res_model">erp.classe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Classes" id="section_main_menu_classe" parent="main_menu_etudiant" />
+        <menuitem name="Classes" id="real_menu_classe" parent="section_main_menu_classe" action="action_classe_seq" />
+    </data>
+</openerp>

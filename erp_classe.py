@@ -7,8 +7,8 @@ class erp_classe(osv.osv):
     _name = 'erp.classe'
 
     _columns = {
-        'classe': fields.char("Classe", size = 30),
-        'code': fields.char("Code", size = 10),
+        'classe': fields.char("Classe", required = True, size = 30),
+        'code': fields.char("Code", required = True, size = 10),
     }
 
 

@@ -5,4 +5,4 @@ import erp_demande
 import erp_emploi
 import erp_etudiant
 import erp_inscription
-import erp_type_demande
+import erp_typedemande

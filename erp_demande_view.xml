@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_demande" name="Gestion Scolarite(Demandes)" />
+
+        <record id="erp_demande_form_view" model="ir.ui.view">
+            <field name="name">erp.demande.form</field>
+            <field name="model">erp.demande</field>
+            <field name="arch" type="xml">
+                <form string="demande" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations demande">
+                                <group>
+                                    <field name="date_demande" />
+                                    <field name="realise" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.demande_tree" model="ir.ui.view">
+            <field name="name">erp.demande.tree</field>
+            <field name="model">erp.demande</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos demande">
+                    <field name="date_demande" />
+                    <field name="realise" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_demande_seq">
+            <field name="name">Demandes</field>
+            <field name="res_model">erp.demande</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Demandes" id="section_main_menu_demande" parent="main_menu_etudiant" />
+        <menuitem name="Demandes" id="real_menu_demande" parent="section_main_menu_demande" action="action_demande_seq" />
+    </data>
+</openerp>

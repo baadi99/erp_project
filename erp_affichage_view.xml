@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_affichage" name="Gestion Scolarite(Affichage)" />
+
+        <record id="erp_affichage_form_view" model="ir.ui.view">
+            <field name="name">erp.affichage.form</field>
+            <field name="model">erp.affichage</field>
+            <field name="arch" type="xml">
+                <form string="affichage" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations affichage">
+                                <group>
+                                    <field name="affichage" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.affichage_tree" model="ir.ui.view">
+            <field name="name">erp.affichage.tree</field>
+            <field name="model">erp.affichage</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos affichage">
+                    <field name="affichage" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_affichage_seq">
+            <field name="name">Affichage</field>
+            <field name="res_model">erp.affichage</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Affichage" id="section_main_menu_affichage" parent="main_menu_etudiant" />
+        <menuitem name="Affichage" id="real_menu_affichage" parent="section_main_menu_affichage" action="action_affichage_seq" />
+    </data>
+</openerp>
