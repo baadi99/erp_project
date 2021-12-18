@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_etudiant" name="Gestion Scolarite" />
+
+        <record id="erp_etudiant_form_view" model="ir.ui.view">
+            <field name="name">erp.etudiant.form</field>
+            <field name="model">erp.etudiant</field>
+            <field name="arch" type="xml">
+                <form string="Etudiant" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations Etudiant">
+                                <group>
+                                    <field name="fname" />
+                                    <field name="lname" />
+                                    <field name="telephone" />
+                                    <field name="email" />
+                                    <field name="gender" />
+                                    <field name="birth_date" />
+                                    <field name="birth_location" />
+                                    <field name="cin" />
+                                    <field name="inscrit" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="erp.etudiant_tree">
+            <field name="name">erp.etudiant.tree</field>
+            <field name="model">erp.etudiant</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos etudiant">
+                    <field name="fname" />
+                    <field name="lname" />
+                    <field name="telephone" />
+                    <field name="email" />
+                    <field name="gender" />
+                    <field name="birth_date" />
+                    <field name="birth_location" />
+                    <field name="cin" />
+                    <field name="inscrit" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_etudiant_seq">
+            <field name="name">action etudiant</field>
+            <field name="res_model">erp.etudiant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record> 
+
+        <menuitem name="Etudiant" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
+        <menuitem name="Sous-menu etudiant" id="real_menu_etudiant" parent="section_main_menu_etudiant" />
+    </data>
+</openerp>
