@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_etudiant" name="Gestion Scolarite" />
+        <menuitem id="main_menu_etudiant" name="Gestion Scolarite"/>
 
         <record id="erp_etudiant_form_view" model="ir.ui.view">
             <field name="name">erp.etudiant.form</field>
@@ -28,7 +28,7 @@
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="erp.etudiant_tree">
+        <record  id="erp.etudiant_tree" model="ir.ui.view">
             <field name="name">erp.etudiant.tree</field>
             <field name="model">erp.etudiant</field>
             <field name="type">tree</field>
@@ -55,6 +55,6 @@
         </record> 
 
         <menuitem name="Etudiant" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
-        <menuitem name="Sous-menu etudiant" id="real_menu_etudiant" parent="section_main_menu_etudiant" />
+        <menuitem name="Sous-menu etudiant" id="real_menu_etudiant" parent="section_main_menu_etudiant" action="action_etudiant_seq" />
     </data>
 </openerp>
