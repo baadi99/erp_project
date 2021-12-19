@@ -1,5 +1,12 @@
 from openerp.osv import osv, fields
 import openerp
+# For regular expression
+import re as regex
+# For warnings
+from openerp.tools.translate import _
+
+import logging
+_logger = logging.getLogger(__name__)
 
 class erp_etudiant(osv.osv):
 
@@ -19,12 +26,36 @@ class erp_etudiant(osv.osv):
         'inscrit': fields.boolean('Inscrit'),
     }
 
+    # Default values
     _defaults = {
         'inscrit': False,
     }
 
-    def mark_inscrit(self, cr, uid, ids, context=None):
-        return self.write(cr, uid, ids, {'inscrit': True}, context=context)
+   
+    # Mark a student as signed in for the current year
+    def _mark_inscrit(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'inscrit': True}, context = context)
+
+
+    # Validation methods:
+    def _is_email_valid(self, cr, uid, ids, context=None):
+        for etudiant in self.browse(cr, uid, ids, context=context):
+            if regex.match("^[a-zA-Z0-9._]+@[a-z\.]+\.[a-z]{2,3}$", etudiant.email) == None:
+                raise openerp.exceptions.Warning(_('Email address is not valid'))
+        return True
+
+    def _is_email_unique(self, cr, uid, ids, context=None):
+        for etudiant in self.browse(cr, uid, ids, context=context):
+            if etudiant.email and self.search(cr, uid, [('email', '=', etudiant.email)], context=context, count = True) != 1: # 1 instead of 0 because search method counts the record we are validating
+                raise openerp.exceptions.Warning(_('Email address already exists!'))                                          # and not only saved records
+        return True
+
+    # Constraints to validate inputs
+    _constraints = [
+        (_is_email_valid, 'Please enter a valid email!', ['email']),
+        (_is_email_unique, 'This email already exists!', ['email']),
+    ]
 
 
 erp_etudiant()
+
