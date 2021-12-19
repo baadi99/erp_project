@@ -7,12 +7,15 @@ class erp_demande(osv.osv):
 
     _columns = {
         'date_demande': fields.date("Date"),
-        'realise': fields.selection((('1', 'En cours'), ('2', 'Realise')), string = 'Etat'),
+        'status': fields.selection((('1', 'Pending'), ('2', 'Done')), string = 'Status', required = True),
     }
 
     _defaults = {
         'date_demande': fields.date("Date").today()
     }
 
+    # Mark a request as done
+    def demande_done(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'status': '2'}, context=context)
 
 erp_demande()

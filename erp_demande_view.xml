@@ -13,7 +13,7 @@
                             <page string="Informations demande">
                                 <group>
                                     <field name="date_demande" />
-                                    <field name="realise" />
+                                    <field name="status" />
                                 </group>
                             </page>
                         </notebook>
@@ -28,7 +28,8 @@
             <field name="arch" type="xml">
                 <tree string="Infos demande">
                     <field name="date_demande" />
-                    <field name="realise" />
+                    <field name="status" />
+                    <button name="demande_done" string="Demande est realise" type="object" icon="gtk-apply" />
                 </tree>
             </field>
         </record>

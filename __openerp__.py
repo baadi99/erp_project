@@ -20,7 +20,7 @@
     'update_xml':[],
     'js':[],
     'qweb':[],
-    'css':[],
+    'css':['static/src/css/scolarite.css'],
     'demo':[],
     'test':[],
     'installable':True,

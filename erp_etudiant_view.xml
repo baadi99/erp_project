@@ -3,6 +3,36 @@
     <data>
         <menuitem id="main_menu_etudiant" name="Gestion Scolarite"/>
 
+        <!-- Kanban View -->
+        <record model="ir.ui.view" id="resource_kanban_view">
+            <field name="name">Etudiant</field>
+            <field name="model">erp.etudiant</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="student-card">
+                                <div>
+                                    <a type="open">
+                                        <img t-att-src="kanban_image('erp.etudiant', 'photo', record.id.value)" />
+                                    </a>
+                                </div>
+                                <div class="student-info">
+                                    <ul>
+                                    <li>Name: <field name="fname"/> <field name="lname"/></li>
+                                    <li>CNE:  <field name="cne"/></li>
+                                    <li>Tel:  <field name="telephone"/></li>
+                                    <li><a t-attf-href="mailto:#{record.email.value}"><field name="email"/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- Form View -->
         <record id="erp_etudiant_form_view" model="ir.ui.view">
             <field name="name">erp.etudiant.form</field>
             <field name="model">erp.etudiant</field>
@@ -12,10 +42,12 @@
                         <notebook>
                             <page string="Informations Etudiant">
                                 <group>
+                                    <field name="cne" />
                                     <field name="fname" />
                                     <field name="lname" />
                                     <field name="telephone" />
                                     <field name="email" />
+                                    <field name="photo" />
                                     <field name="gender" />
                                     <field name="birth_date" />
                                     <field name="birth_location" />
@@ -28,21 +60,26 @@
                 </form>
             </field>
         </record>
+
+        <!-- Tree View -->
         <record  id="erp.etudiant_tree" model="ir.ui.view">
             <field name="name">erp.etudiant.tree</field>
             <field name="model">erp.etudiant</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Infos etudiant">
+                    <field name="cne" />
                     <field name="fname" />
                     <field name="lname" />
                     <field name="telephone" />
                     <field name="email" />
+                    <field name="photo" />
                     <field name="gender" />
                     <field name="birth_date" />
                     <field name="birth_location" />
                     <field name="cin" />
                     <field name="inscrit" />
+                    <button name="mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
                 </tree>
             </field>
         </record>
@@ -51,7 +88,7 @@
             <field name="name">Etudiants</field>
             <field name="res_model">erp.etudiant</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record> 
 
         <menuitem name="Etudiants" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
