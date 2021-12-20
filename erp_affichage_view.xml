@@ -12,7 +12,9 @@
                         <notebook>
                             <page string="Informations affichage">
                                 <group>
-                                    <field name="affichage" />
+                                    <field name="affichage_file" filename="filename" />
+                                    <field name="file_name" invisible="1" readonly = "1"/>
+                                    <field name="type_affichage" />
                                 </group>
                             </page>
                         </notebook>
@@ -26,7 +28,8 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Infos affichage">
-                    <field name="affichage" />
+                    <field name="affichage_file" />
+                    <field name="type_affichage" />
                 </tree>
             </field>
         </record>

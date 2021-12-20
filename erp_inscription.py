@@ -7,6 +7,7 @@ class erp_inscription(osv.osv):
 
     _columns = {
         'date_inscription': fields.date("Date"),
+        # TODO: add many2one relationship with student and classe
     }
 
     _defaults = {

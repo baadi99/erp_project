@@ -29,7 +29,7 @@
                 <tree string="Infos demande">
                     <field name="date_demande" />
                     <field name="status" />
-                    <button name="demande_done" string="Demande est realise" type="object" icon="gtk-apply" />
+                    <button name="demande_processed" string="Demande est realise" type="object" icon="gtk-apply" />
                 </tree>
             </field>
         </record>

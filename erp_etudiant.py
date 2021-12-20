@@ -16,7 +16,7 @@ class erp_etudiant(osv.osv):
         'cne': fields.char("CNE", required = True, size = 20),
         'fname': fields.char("First name", required = True, size = 20),
         'lname': fields.char("Last name", required = True, size=20),
-        'telephone': fields.char("Telephone", required = True, size = 10),
+        'telephone': fields.char("Telephone", required = True, size = 20),
         'email': fields.char("Email", required = True, size = 50),
         'photo': fields.binary("Photo", required = True),
         'gender': fields.selection((('male', 'male'), ('female', 'female')), string = "Gender", required = True),
@@ -24,6 +24,7 @@ class erp_etudiant(osv.osv):
         'birth_location': fields.char("Birth location", required = True, size = 50),
         'cin': fields.char("CIN", required = True, size = 10),
         'inscrit': fields.boolean('Inscrit'),
+        'id_classe': fields.many2one('erp.classe', 'classe', ondelete='cascade'), # should be changed to set to null
     }
 
     # Default values
@@ -50,10 +51,22 @@ class erp_etudiant(osv.osv):
                 raise openerp.exceptions.Warning(_('Email address already exists!'))                                          # and not only saved records
         return True
 
+    # a method to validate photo extension
+    def _check_extension(self, cr, uid, ids, context=None):
+        for etudiant in self.browse(cr, uid, ids, context=context):
+            extension = etudiant.photo.file.split('.')[-1]
+            _logger.error(etudiant.photo)
+            _logger.error(extension)
+            if extension and extension not in ["png", "jpeg", "jpg"]:
+                raise openerp.exceptions.Warning(
+                    _('The photo you\'ve selected is invalid!\n Please select a jpeg or png image'))
+        return True
+
     # Constraints to validate inputs
     _constraints = [
         (_is_email_valid, 'Please enter a valid email!', ['email']),
         (_is_email_unique, 'This email already exists!', ['email']),
+        (_check_extension, 'The photo you selected is invalid!', ['photo']),
     ]
 
 
