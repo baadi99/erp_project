@@ -47,7 +47,8 @@
                                     <field name="lname" />
                                     <field name="telephone" />
                                     <field name="email" />
-                                    <field name="photo" />
+                                    <field name="file_name" invisible = "1" />
+                                    <field name="photo" filename = "file_name"/>
                                     <field name="gender" />
                                     <field name="birth_date" />
                                     <field name="birth_location" />

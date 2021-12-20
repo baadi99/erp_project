@@ -12,7 +12,8 @@
                         <notebook>
                             <page string="Informations emploi">
                                 <group>
-                                    <field name="emploi" />
+                                    <field name="file_name" invisible = "1" />
+                                    <field name="emploi" filename = "file_name"/>
                                 </group>
                             </page>
                         </notebook>

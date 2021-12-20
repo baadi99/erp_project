@@ -18,6 +18,7 @@ class erp_etudiant(osv.osv):
         'lname': fields.char("Last name", required = True, size=20),
         'telephone': fields.char("Telephone", required = True, size = 20),
         'email': fields.char("Email", required = True, size = 50),
+        'file_name': fields.char("File name", required = True), # a helper field to store the name of the uploaded image
         'photo': fields.binary("Photo", required = True),
         'gender': fields.selection((('male', 'male'), ('female', 'female')), string = "Gender", required = True),
         'birth_date': fields.date("Date of birth", required = True),
@@ -54,9 +55,7 @@ class erp_etudiant(osv.osv):
     # a method to validate photo extension
     def _check_extension(self, cr, uid, ids, context=None):
         for etudiant in self.browse(cr, uid, ids, context=context):
-            extension = etudiant.photo.file.split('.')[-1]
-            _logger.error(etudiant.photo)
-            _logger.error(extension)
+            extension = etudiant.file_name.split('.')[-1].lower()
             if extension and extension not in ["png", "jpeg", "jpg"]:
                 raise openerp.exceptions.Warning(
                     _('The photo you\'ve selected is invalid!\n Please select a jpeg or png image'))
@@ -66,7 +65,7 @@ class erp_etudiant(osv.osv):
     _constraints = [
         (_is_email_valid, 'Please enter a valid email!', ['email']),
         (_is_email_unique, 'This email already exists!', ['email']),
-        (_check_extension, 'The photo you selected is invalid!', ['photo']),
+        (_check_extension, 'The photo you selected is invalid! \nPlease select a valid image(i.e. *.png, *.jpeg/jpg)', ['file_name']),
     ]
 
 
