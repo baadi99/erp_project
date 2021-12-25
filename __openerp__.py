@@ -6,7 +6,7 @@
     'sequence':1,
     'description':"un module qui permet la gestion de scolarite",
     'images':[''],
-    'depends':['base'],
+    'depends': ['base', 'email_template'],
     'data': [
         'erp_etudiant_view.xml', 
         'erp_affichage_view.xml', 
@@ -15,6 +15,7 @@
         'erp_emploi_view.xml',
         'erp_inscription_view.xml',
         'erp_classe_view.xml',
+        'email_template.xml',
         ],
     'website':'scolarite@gmail.com',
     'update_xml':[],

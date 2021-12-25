@@ -54,7 +54,6 @@
                                     <field name="birth_location" />
                                     <field name="cin" />
                                     <field name="inscrit" />
-                                    <field name="id_classe" />
                                 </group>
                             </page>
                         </notebook>
@@ -81,7 +80,8 @@
                     <field name="birth_location" />
                     <field name="cin" />
                     <field name="inscrit" />
-                    <button name="_mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
+                    <field name="demande_ids" />
+                    <button name="mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
                 </tree>
             </field>
         </record>

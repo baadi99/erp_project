@@ -14,10 +14,15 @@
                                 <group>
                                     <field name="date_demande" />
                                     <field name="status" />
+                                    <field name="id_etudiant" />
                                 </group>
                             </page>
                         </notebook>
                     </sheet>
+                    <!-- Emails widget -->
+                    <div class="oe_chatter">
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
                 </form>
             </field>
         </record>
@@ -28,8 +33,11 @@
             <field name="arch" type="xml">
                 <tree string="Infos demande">
                     <field name="date_demande" />
+                    <field name="email" invisible="1" />
+                    <field name="id_etudiant" />
                     <field name="status" />
                     <button name="demande_processed" string="Demande est realise" type="object" icon="gtk-apply" />
+                    <button name="%(mail.action_email_compose_message_wizard)d" context='{"default_email_to":email}' string="Notify Student" type="action" icon="gtk-edit" />
                 </tree>
             </field>
         </record>
