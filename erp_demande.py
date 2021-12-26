@@ -16,7 +16,7 @@ class erp_demande(osv.osv):
         'email': fields.char('email', readonly=True),
         'status': fields.selection((("1", "Pending"), ("2", "Processed")), string = "Status", required = True),
         # TODO: add many2one relationship with typeDemande 
-        'id_etudiant': fields.many2one('erp.etudiant', 'Etudiant', ondelete='set null'),
+        'etudiant_id': fields.many2one('erp.etudiant', 'Etudiant', ondelete='set null'),
         'email_notif_id' : fields.many2one('email.template', 'Notification email template', help="This template will be used when a request is marked as processed"),
     }
 

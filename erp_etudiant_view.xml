@@ -53,6 +53,7 @@
                                     <field name="birth_date" />
                                     <field name="birth_location" />
                                     <field name="cin" />
+                                    <field name="classe_id" />
                                     <field name="inscrit" />
                                 </group>
                             </page>
@@ -72,13 +73,14 @@
                     <field name="cne" />
                     <field name="fname" />
                     <field name="lname" />
+                    <field name="classe_id" />
                     <field name="telephone" />
                     <field name="email" />
-                    <field name="photo" />
-                    <field name="gender" />
-                    <field name="birth_date" />
-                    <field name="birth_location" />
-                    <field name="cin" />
+                    <field name="photo" invisible = "1"/>
+                    <field name="gender" invisible = "1"/>
+                    <field name="birth_date" invisible = "1"/>
+                    <field name="birth_location" invisible = "1"/>
+                    <field name="cin" invisible = "1"/>
                     <field name="inscrit" />
                     <field name="demande_ids" />
                     <button name="mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
