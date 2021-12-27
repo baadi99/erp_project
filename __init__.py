@@ -1,8 +1,8 @@
 #Importing classes
-import erp_affichage
+import erp_announce
 import erp_classe
-import erp_demande
-import erp_emploi
-import erp_etudiant
-import erp_inscription
-import erp_typedemande
+import erp_request
+import erp_timetable
+import erp_student
+import erp_signin
+import erp_requesteddoc

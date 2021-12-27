@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_requesteddoc" name="Gestion Scolarite (Document Types)" />
+
+        <record id="erp_requesteddoc_form_view" model="ir.ui.view">
+            <field name="name">erp.requesteddoc.form</field>
+            <field name="model">erp.requesteddoc</field>
+            <field name="arch" type="xml">
+                <form string="requesteddoc" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations requesteddoc">
+                                <group>
+                                    <field name="name" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.requesteddoc_tree" model="ir.ui.view">
+            <field name="name">erp.requesteddoc.tree</field>
+            <field name="model">erp.requesteddoc</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos requesteddoc">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_requesteddoc_seq">
+            <field name="name">Types request</field>
+            <field name="res_model">erp.requesteddoc</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Document Types" id="real_menu_requesteddoc" parent="section_main_menu_request" action="action_requesteddoc_seq" />
+    </data>
+</openerp>

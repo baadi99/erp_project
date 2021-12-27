@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_signin" name="Gestion Scolarite(Sign in)" />
+
+        <record id="erp_signin_form_view" model="ir.ui.view">
+            <field name="name">erp.signin.form</field>
+            <field name="model">erp.signin</field>
+            <field name="arch" type="xml">
+                <form string="signin" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations signin">
+                                <group>
+                                    <field name="date_signin" />
+                                    <field name="student_id" />
+                                    <field name="classe_id" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.signin_tree" model="ir.ui.view">
+            <field name="name">erp.signin.tree</field>
+            <field name="model">erp.signin</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos signin">
+                    <field name="date_signin" />
+                    <field name="student_id" />
+                    <field name="classe_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_signin_seq">
+            <field name="name">Sign ins</field>
+            <field name="res_model">erp.signin</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Sign ins" id="section_main_menu_signin" parent="main_menu_student" />
+        <menuitem name="Sign ins" id="real_menu_signin" parent="section_main_menu_signin" action="action_signin_seq" />
+    </data>
+</openerp>

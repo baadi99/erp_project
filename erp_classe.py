@@ -21,12 +21,12 @@ class erp_classe(osv.osv):
         # instead of displayed as erp.classe,id the relationship
         # will display in the "classe, code" format
         'name': fields.function(_get_class_name, type='char', store = True),
-        'classe': fields.char("Classe", required = True, size = 30),
+        'classe': fields.char("Class", required = True, size = 30),
         'code': fields.char("Code", required = True, size = 10),
-        'etudiant_ids': fields.one2many('erp.etudiant', 'classe_id', string='Etudiant'),
-        'inscription_ids': fields.one2many('erp.inscription', 'classe_id', string='Inscriptions'),
-        'emploi_ids': fields.one2many('erp.emploi', 'classe_id', string='Emplois'),
-        'affichage_ids': fields.one2many('erp.affichage', 'classe_id', string='Affichages'),
+        'student_ids': fields.one2many('erp.student', 'classe_id', string='Student'),
+        'signin_ids': fields.one2many('erp.signin', 'classe_id', string='Sign ins'),
+        'timetable_ids': fields.one2many('erp.timetable', 'classe_id', string='Timetables'),
+        # 'announce_ids': fields.one2many('erp.announce', 'classe_id', string='Announces'),
     }
 
 

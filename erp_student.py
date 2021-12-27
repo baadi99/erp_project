@@ -2,30 +2,28 @@ from openerp.osv import osv, fields
 import openerp
 # For regular expression
 import re as regex
-# For warnings
-from openerp.tools.translate import _
 
 import logging
 _logger = logging.getLogger(__name__)
 
-class erp_etudiant(osv.osv):
+class erp_student(osv.osv):
         
-    _name ='erp.etudiant'
+    _name = 'erp.student'
 
     # A method to get the full name of the current student
     def _get_full_name(self, cr, uid, ids, field_name, arg, context=None): 
         full_name = {}
-        for etudiant in self.browse(cr, uid, ids, context):
-            if not etudiant.fname == "":
-                full_name[etudiant.id] = etudiant.fname
-            if not etudiant.lname == "":
-                full_name[etudiant.id] += " " + etudiant.lname
+        for student in self.browse(cr, uid, ids, context):
+            if not student.fname == "":
+                full_name[student.id] = student.fname
+            if not student.lname == "":
+                full_name[student.id] += " " + student.lname
         return full_name
 
     _columns = {
         'cne': fields.char("CNE", required = True, size = 20),
         # name is a helper field that will be used in relationships
-        # instead of displayed as erp.etudiant,id the relationship 
+        # instead of displayed as erp.student,id the relationship 
         # will display the full name of the student
         'name': fields.function(_get_full_name, type='char', store=True),
         'fname': fields.char("First name", required=True, size=20),
@@ -39,9 +37,9 @@ class erp_etudiant(osv.osv):
         'birth_location': fields.char("Birth location", required = True, size = 50),
         'cin': fields.char("CIN", required = True, size = 10),
         'inscrit': fields.boolean('Inscrit'),
-        'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='set null'),
-        'demande_ids': fields.one2many('erp.demande', 'etudiant_id', string='Demandes'),
-        'inscription_ids': fields.one2many('erp.inscription', 'etudiant_id', string='Inscriptions'),
+        'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='cascade'),
+        'request_ids': fields.one2many('erp.request', 'student_id', string='Document Requests'),
+        'signin_ids': fields.one2many('erp.signin', 'student_id', string='Sign ins'),
     }
 
     # Default values
@@ -57,25 +55,24 @@ class erp_etudiant(osv.osv):
     # ----------------------- Validation methods: --------------------------- #
     # a method to validate the format of the email
     def _is_email_valid(self, cr, uid, ids, context = None):
-        for etudiant in self.browse(cr, uid, ids, context = context):
-            if regex.match("^[a-zA-Z0-9._]+@[a-z\.]+\.[a-z]{2,3}$", etudiant.email) == None:
-                raise openerp.exceptions.Warning(_('Email address is not valid'))
+        for student in self.browse(cr, uid, ids, context = context):
+            if regex.match("^[a-zA-Z0-9._]+@[a-z\.]+\.[a-z]{2,3}$", student.email) == None:
+                raise openerp.exceptions.Warning('Email address is not valid')
         return True
 
     # a method to check the uniqueness of the email entered
     def _is_email_unique(self, cr, uid, ids, context = None):
-        for etudiant in self.browse(cr, uid, ids, context=context):
-            if etudiant.email and self.search(cr, uid, [('email', '=', etudiant.email)], context=context, count = True) != 1: # 1 instead of 0 because search method counts the record we are validating
-                raise openerp.exceptions.Warning(_('Email address already exists!'))                                          # and not only saved records
+        for student in self.browse(cr, uid, ids, context=context):
+            if student.email and self.search(cr, uid, [('email', '=', student.email)], context=context, count = True) != 1: # 1 instead of 0 because search method counts the record we are validating
+                raise openerp.exceptions.Warning('Email address already exists!')                                          # and not only saved records
         return True
 
     # a method to validate the photo extension
     def _check_extension(self, cr, uid, ids, context = None):
-        for etudiant in self.browse(cr, uid, ids, context = context):
-            extension = etudiant.file_name.split('.')[-1].lower()
+        for student in self.browse(cr, uid, ids, context = context):
+            extension = student.file_name.split('.')[-1].lower()
             if extension and extension not in ["png", "jpeg", "jpg"]:
-                raise openerp.exceptions.Warning(
-                    _('The photo you\'ve selected is invalid!\n Please select a jpeg or png image'))
+                raise openerp.exceptions.Warning('The photo you\'ve selected is invalid!\n Please select a jpeg or png image')
         return True
 
     # Constraints to validate inputs
@@ -86,5 +83,5 @@ class erp_etudiant(osv.osv):
     ]
 
 
-erp_etudiant()
+erp_student()
 

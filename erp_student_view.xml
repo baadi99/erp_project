@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_etudiant" name="Gestion Scolarite"/>
+        <menuitem id="main_menu_student" name="Gestion Scolarite"/>
 
         <!-- Kanban View -->
         <record model="ir.ui.view" id="resource_kanban_view">
-            <field name="name">Etudiant</field>
-            <field name="model">erp.etudiant</field>
+            <field name="name">Student</field>
+            <field name="model">erp.student</field>
             <field name="type">kanban</field>
             <field name="arch" type="xml">
                 <kanban>
@@ -15,7 +15,7 @@
                             <div class="student-card">
                                 <div>
                                     <a type="open">
-                                        <img t-att-src="kanban_image('erp.etudiant', 'photo', record.id.value)" />
+                                        <img t-att-src="kanban_image('erp.student', 'photo', record.id.value)" />
                                     </a>
                                 </div>
                                 <div class="student-info">
@@ -33,14 +33,14 @@
             </field>
         </record>
         <!-- Form View -->
-        <record id="erp_etudiant_form_view" model="ir.ui.view">
-            <field name="name">erp.etudiant.form</field>
-            <field name="model">erp.etudiant</field>
+        <record id="erp_student_form_view" model="ir.ui.view">
+            <field name="name">erp.student.form</field>
+            <field name="model">erp.student</field>
             <field name="arch" type="xml">
-                <form string="Etudiant" version="7.0">
+                <form string="Student" version="7.0">
                     <sheet>
                         <notebook>
-                            <page string="Informations Etudiant">
+                            <page string="Informations Student">
                                 <group>
                                     <field name="cne" />
                                     <field name="fname" />
@@ -54,7 +54,6 @@
                                     <field name="birth_location" />
                                     <field name="cin" />
                                     <field name="classe_id" />
-                                    <field name="inscrit" />
                                 </group>
                             </page>
                         </notebook>
@@ -64,12 +63,12 @@
         </record>
 
         <!-- Tree View -->
-        <record  id="erp.etudiant_tree" model="ir.ui.view">
-            <field name="name">erp.etudiant.tree</field>
-            <field name="model">erp.etudiant</field>
+        <record  id="erp.student_tree" model="ir.ui.view">
+            <field name="name">erp.student.tree</field>
+            <field name="model">erp.student</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Infos etudiant">
+                <tree string="Infos student">
                     <field name="cne" />
                     <field name="fname" />
                     <field name="lname" />
@@ -82,21 +81,21 @@
                     <field name="birth_location" invisible = "1"/>
                     <field name="cin" invisible = "1"/>
                     <field name="inscrit" />
-                    <field name="demande_ids" />
-                    <field name="inscription_ids" />
-                    <button name="mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
+                    <field name="request_ids" />
+                    <field name="signin_ids" />
+                    <button name="mark_inscrit" string="Student inscrit?" type="object" icon="gtk-apply" />
                 </tree>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="action_etudiant_seq">
-            <field name="name">Etudiants</field>
-            <field name="res_model">erp.etudiant</field>
+        <record model="ir.actions.act_window" id="action_student_seq">
+            <field name="name">Students</field>
+            <field name="res_model">erp.student</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form</field>
         </record> 
 
-        <menuitem name="Etudiants" id="section_main_menu_etudiant" parent="main_menu_etudiant" />
-        <menuitem name="Etudiants" id="real_menu_etudiant" parent="section_main_menu_etudiant" action="action_etudiant_seq" />
+        <menuitem name="Students" id="section_main_menu_student" parent="main_menu_student" sequence="1"/>
+        <menuitem name="Students" id="real_menu_student" parent="section_main_menu_student" action="action_student_seq" />
     </data>
 </openerp>

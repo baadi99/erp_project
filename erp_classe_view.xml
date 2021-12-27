@@ -14,7 +14,7 @@
                                 <group>
                                     <field name="classe" />
                                     <field name="code" />
-                                    <field name="etudiant_ids" />
+                                    <field name="student_ids" />
                                 </group>
                             </page>
                         </notebook>
@@ -30,7 +30,7 @@
                 <tree string="Infos classe">
                     <field name="classe" />
                     <field name="code" />
-                    <field name="etudiant_ids" />
+                    <field name="student_ids" />
                 </tree>
             </field>
         </record>
@@ -42,7 +42,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Classes" id="section_main_menu_classe" parent="main_menu_etudiant" />
+        <menuitem name="Classes" id="section_main_menu_classe" parent="main_menu_student" sequence="2" />
         <menuitem name="Classes" id="real_menu_classe" parent="section_main_menu_classe" action="action_classe_seq" />
     </data>
 </openerp>

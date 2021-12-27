@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_request" name="Gestion Scolarite(Document Requests)" />
+
+        <record id="erp_request_form_view" model="ir.ui.view">
+            <field name="name">erp.request.form</field>
+            <field name="model">erp.request</field>
+            <field name="arch" type="xml">
+                <form string="request" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations request">
+                                <group>
+                                    <field name="type_id" />
+                                    <field name="request_date" />
+                                    <field name="status" />
+                                    <field name="student_id" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- Emails widget -->
+                    <div class="oe_chatter">
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="erp.request_tree" model="ir.ui.view">
+            <field name="name">erp.request.tree</field>
+            <field name="model">erp.request</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos request">
+                    <field name="type_id" />
+                    <field name="request_date" />
+                    <field name="email" invisible="1" />
+                    <field name="student_id" />
+                    <field name="status" />
+                    <button name="request_processed" string="Mark as processed" type="object" icon="gtk-apply" />
+                    <button name="%(mail.action_email_compose_message_wizard)d" context='{"default_email_to":email}' string="Notify Student" type="action" icon="gtk-edit" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_request_seq">
+            <field name="name">Document Requests</field>
+            <field name="res_model">erp.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Document Requests" id="section_main_menu_request" parent="main_menu_student" />
+        <menuitem name="Document Requests" id="real_menu_request" parent="section_main_menu_request" action="action_request_seq" />
+    </data>
+</openerp>
