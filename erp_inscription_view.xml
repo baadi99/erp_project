@@ -13,6 +13,8 @@
                             <page string="Informations inscription">
                                 <group>
                                     <field name="date_inscription" />
+                                    <field name="etudiant_id" />
+                                    <field name="classe_id" />
                                 </group>
                             </page>
                         </notebook>
@@ -27,6 +29,8 @@
             <field name="arch" type="xml">
                 <tree string="Infos inscription">
                     <field name="date_inscription" />
+                    <field name="etudiant_id" />
+                    <field name="classe_id" />
                 </tree>
             </field>
         </record>

@@ -12,6 +12,7 @@
                         <notebook>
                             <page string="Informations demande">
                                 <group>
+                                    <field name="type_id" />
                                     <field name="date_demande" />
                                     <field name="status" />
                                     <field name="etudiant_id" />
@@ -32,6 +33,7 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Infos demande">
+                    <field name="type_id" />
                     <field name="date_demande" />
                     <field name="email" invisible="1" />
                     <field name="etudiant_id" />

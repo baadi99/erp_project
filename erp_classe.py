@@ -20,10 +20,13 @@ class erp_classe(osv.osv):
         # name is a helper field that will be used in relationships
         # instead of displayed as erp.classe,id the relationship
         # will display in the "classe, code" format
-        'name': fields.function(_get_class_name, type='char', store=True),
+        'name': fields.function(_get_class_name, type='char', store = True),
         'classe': fields.char("Classe", required = True, size = 30),
         'code': fields.char("Code", required = True, size = 10),
         'etudiant_ids': fields.one2many('erp.etudiant', 'classe_id', string='Etudiant'),
+        'inscription_ids': fields.one2many('erp.inscription', 'classe_id', string='Inscriptions'),
+        'emploi_ids': fields.one2many('erp.emploi', 'classe_id', string='Emplois'),
+        'affichage_ids': fields.one2many('erp.affichage', 'classe_id', string='Affichages'),
     }
 
 

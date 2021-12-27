@@ -6,8 +6,9 @@ class erp_inscription(osv.osv):
     _name = 'erp.inscription'
 
     _columns = {
-        'date_inscription': fields.date("Date"),
-        # TODO: add many2one relationship with student and classe
+        'date_inscription': fields.date("Date", required = True),
+        'etudiant_id': fields.many2one('erp.etudiant', 'Etudiant', ondelete='set null', required = True),
+        'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='set null', required = True),
     }
 
     _defaults = {

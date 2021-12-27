@@ -15,6 +15,7 @@
                                     <field name="file_name" invisible="1"/>
                                     <field name="affichage_file" filename="file_name" />
                                     <field name="type_affichage" />
+                                    <field name="classe_id" />
                                 </group>
                             </page>
                         </notebook>
@@ -30,6 +31,7 @@
                 <tree string="Infos affichage">
                     <field name="affichage_file" />
                     <field name="type_affichage" />
+                    <field name="classe_id" />
                 </tree>
             </field>
         </record>

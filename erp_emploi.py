@@ -10,7 +10,9 @@ class erp_emploi(osv.osv):
     _columns = {
         'file_name': fields.char("File name", required = True),
         'emploi': fields.binary("Emploi", required = True),
+        'semester': fields.selection((('1', 'S1'), ('2', 'S2')), string = "Semester", required = True),
         # TODO : add relationship with classe
+        'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='set null'),
     }
 
     # a method to validate file extensions

@@ -41,6 +41,7 @@ class erp_etudiant(osv.osv):
         'inscrit': fields.boolean('Inscrit'),
         'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='set null'),
         'demande_ids': fields.one2many('erp.demande', 'etudiant_id', string='Demandes'),
+        'inscription_ids': fields.one2many('erp.inscription', 'etudiant_id', string='Inscriptions'),
     }
 
     # Default values

@@ -7,8 +7,9 @@ class erp_typedemande(osv.osv):
     _name = 'erp.typedemande'
 
     _columns = {
-        'type_demande': fields.char("Type", required = True, size = 20)
+        'name': fields.char("Type", required = True, size = 20),
         # TODO: add one2many relationship with demande
+        'demande_ids': fields.one2many('erp.demande', 'type_id', string = 'Demandes'),
         # TODO: add field 'Template' 
     }
 

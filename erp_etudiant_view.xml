@@ -83,6 +83,7 @@
                     <field name="cin" invisible = "1"/>
                     <field name="inscrit" />
                     <field name="demande_ids" />
+                    <field name="inscription_ids" />
                     <button name="mark_inscrit" string="Etudiant inscrit?" type="object" icon="gtk-apply" />
                 </tree>
             </field>

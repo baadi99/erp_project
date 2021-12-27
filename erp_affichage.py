@@ -14,7 +14,7 @@ class erp_affichage(osv.osv):
         'file_name': fields.char("file name", required = True), # a helper field to store the name of the uploaded file
         'affichage_file': fields.binary("Affichage", required = True),
         'type_affichage': fields.selection((("1", "Affichage d'un module"), ("2","Deliberation")), string = "Type d'affichage", required = True),
-        # TODO: add many2one relationship with classe
+        'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='set null'),
     }
 
     _defaults = {
