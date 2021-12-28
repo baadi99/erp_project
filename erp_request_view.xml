@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_request" name="Gestion Scolarite(Document Requests)" />
+        <menuitem id="main_menu_request" name="Scolarite(Document Requests)" />
 
         <record id="erp_request_form_view" model="ir.ui.view">
             <field name="name">erp.request.form</field>

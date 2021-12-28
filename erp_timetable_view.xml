@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_timetable" name="Gestion Scolarite(Timetable)" />
+        <menuitem id="main_menu_timetable" name="Scolarite(Timetable)" />
 
         <record id="erp_timetable_form_view" model="ir.ui.view">
             <field name="name">erp.timetable.form</field>

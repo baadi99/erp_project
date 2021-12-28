@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_student" name="Gestion Scolarite"/>
+        <menuitem id="main_menu_student" name="Scolarite"/>
 
         <!-- Kanban View -->
         <record model="ir.ui.view" id="resource_kanban_view">
@@ -82,8 +82,8 @@
                     <field name="cin" invisible = "1"/>
                     <field name="inscrit" />
                     <field name="request_ids" />
-                    <field name="signin_ids" />
-                    <button name="mark_inscrit" string="Student inscrit?" type="object" icon="gtk-apply" />
+                    <field name="registration_ids" />
+                    <!-- <button name="mark_inscrit" string="Student inscrit?" type="object" icon="gtk-apply" /> -->
                 </tree>
             </field>
         </record>

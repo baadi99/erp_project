@@ -36,10 +36,10 @@ class erp_student(osv.osv):
         'birth_date': fields.date("Date of birth", required = True),
         'birth_location': fields.char("Birth location", required = True, size = 50),
         'cin': fields.char("CIN", required = True, size = 10),
-        'inscrit': fields.boolean('Inscrit'),
+        'inscrit': fields.boolean('Registred'),
         'classe_id': fields.many2one('erp.classe', 'Classe', ondelete='cascade'),
         'request_ids': fields.one2many('erp.request', 'student_id', string='Document Requests'),
-        'signin_ids': fields.one2many('erp.signin', 'student_id', string='Sign ins'),
+        'registration_ids': fields.one2many('erp.registration', 'student_id', string='Registrations'),
     }
 
     # Default values

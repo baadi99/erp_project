@@ -1,7 +1,6 @@
 from openerp.osv import osv, fields
 import openerp
 
-
 class erp_classe(osv.osv):
 
     _name = 'erp.classe'
@@ -24,9 +23,9 @@ class erp_classe(osv.osv):
         'classe': fields.char("Class", required = True, size = 30),
         'code': fields.char("Code", required = True, size = 10),
         'student_ids': fields.one2many('erp.student', 'classe_id', string='Student'),
-        'signin_ids': fields.one2many('erp.signin', 'classe_id', string='Sign ins'),
+        'registration_ids': fields.one2many('erp.registration', 'classe_id', string='Registrations'),
         'timetable_ids': fields.one2many('erp.timetable', 'classe_id', string='Timetables'),
-        # 'announce_ids': fields.one2many('erp.announce', 'classe_id', string='Announces'),
+        # 'announcement_ids': fields.one2many('erp.announcement', 'classe_id', string='Announcements'),
     }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem id="main_menu_classe" name="Gestion Scolarite(Classe)" />
+        <menuitem id="main_menu_classe" name="Scolarite(Classe)" />
 
         <record id="erp_classe_form_view" model="ir.ui.view">
             <field name="name">erp.classe.form</field>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_registration" name="Scolarite(Registration)" />
+
+        <record id="erp_registration_form_view" model="ir.ui.view">
+            <field name="name">erp.registration.form</field>
+            <field name="model">erp.registration</field>
+            <field name="arch" type="xml">
+                <form string="registration" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations registration">
+                                <group>
+                                    <field name="date_registration" />
+                                    <field name="student_id" />
+                                    <field name="classe_id" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.registration_tree" model="ir.ui.view">
+            <field name="name">erp.registration.tree</field>
+            <field name="model">erp.registration</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos registration">
+                    <field name="date_registration" />
+                    <field name="student_id" />
+                    <field name="classe_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_registration_seq">
+            <field name="name">Registrations</field>
+            <field name="res_model">erp.registration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Registrations" id="section_main_menu_registration" parent="main_menu_student" />
+        <menuitem name="Registrations" id="real_menu_registration" parent="section_main_menu_registration" action="action_registration_seq" />
+    </data>
+</openerp>

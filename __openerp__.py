@@ -1,5 +1,5 @@
 {
-    'name':'Gestion Scolarite',
+    'name':'Scolarite',
     'version':'1.0',
     'author':'Mohcine BAADI, Hamza SAKHRI',
     'category':'Management',
@@ -9,11 +9,11 @@
     'depends': ['base', 'email_template'],
     'data': [
         'erp_student_view.xml', 
-        'erp_announce_view.xml', 
+        'erp_announcement_view.xml', 
         'erp_request_view.xml',
         'erp_requesteddoc_view.xml',
         'erp_timetable_view.xml',
-        'erp_signin_view.xml',
+        'erp_registration_view.xml',
         'erp_classe_view.xml',
         'email_template.xml',
         ],
@@ -21,9 +21,10 @@
     'update_xml':[],
     'js':[],
     'qweb':[],
-    'css':['static/src/css/scolarite.css'],
+    'css':['static/src/css/styles.css'],
     'demo':[],
     'test':[],
     'installable':True,
     'auto_install':False
 }
+

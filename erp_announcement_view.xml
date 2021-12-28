@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="main_menu_announcement" name="Scolarite(Announcements)" />
+
+        <record id="erp_announcement_form_view" model="ir.ui.view">
+            <field name="name">erp.announcement.form</field>
+            <field name="model">erp.announcement</field>
+            <field name="arch" type="xml">
+                <form string="announcement" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Informations announcement">
+                                <group>
+                                    <field name="file_name" invisible="1"/>
+                                    <field name="announcement_file" filename="file_name" />
+                                    <field name="type_announcement" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="erp.announcement_tree" model="ir.ui.view">
+            <field name="name">erp.announcement.tree</field>
+            <field name="model">erp.announcement</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Infos announcement">
+                    <field name="announcement_file" />
+                    <field name="type_announcement" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_announcement_seq">
+            <field name="name">Announcement</field>
+            <field name="res_model">erp.announcement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Announcements" id="section_main_menu_announcement" parent="main_menu_student" />
+        <menuitem name="Announcements" id="real_menu_announcement" parent="section_main_menu_announcement" 
+        action="action_announcement_seq" />
+
+    </data>
+</openerp>

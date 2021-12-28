@@ -1,7 +1,6 @@
 from openerp.osv import osv, fields
 import openerp
 
-
 class erp_requesteddoc(osv.osv):
 
     _name = 'erp.requesteddoc'
