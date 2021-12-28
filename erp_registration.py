@@ -15,6 +15,8 @@ class erp_registration(osv.osv):
         'date_registration': fields.date("date").today(),    
     }
 
+    # A method to assign a student to a class and mark them as registred when
+    # a new registration is created
     def create(self, cr, uid, values, context = None):
         student = values['student_id']
         self.pool.get('erp.student').write(cr, uid, [student], {'classe_id': values['classe_id'], 'inscrit': True}, context=context)
